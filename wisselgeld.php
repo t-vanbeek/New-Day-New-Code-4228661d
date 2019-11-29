@@ -11,8 +11,6 @@
         4ac) PRINT X keer X euro
 */
 
-constant($geldeenheden);
-
 $geldeenheden = array(
     50,
     20,
@@ -28,5 +26,22 @@ $restbedrag = readline() . PHP_EOL;
 foreach ($geldeenheden as $GELDEENHEDEN) {
     if ($restbedrag >= $GELDEENHEDEN) {
         
+        $aantalKeerGeldEenheidInRestBedrag = $restbedrag / $GELDEENHEDEN;
+
+        var_dump($aantalKeerGeldEenheidInRestBedrag);
+        
+        $floored = floor($aantalKeerGeldEenheidInRestBedrag);
+        
+        var_dump($floored);
+
+        $floored = (int) $floored;
+
+        $aantalKeerGeldEenheidInRestBedrag = $floored;
+        
+        $restbedrag = $restbedrag % $GELDEENHEDEN;
+
+        echo("$aantalKeerGeldEenheidInRestBedrag keer $GELDEENHEDEN euro.") . PHP_EOL;
     }
 }
+
+?>
